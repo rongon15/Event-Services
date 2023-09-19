@@ -10,7 +10,7 @@ public class User {
     @Id
     @Column(name = "userid")
     @GeneratedValue
-    private UUID id;
+    private Integer id;
 
     @Column(name = "firstname")
     private String firstName;
@@ -31,7 +31,7 @@ public class User {
     private int contactNo;
 
 
-    public UUID getUserid() {
+    public Integer getUserid() {
         return id;
     }
 
@@ -44,7 +44,7 @@ public class User {
     }
 
 
-    public void setUserid(UUID userid) {
+    public void setUserid(Integer userid) {
         this.id = (userid);
     }
 

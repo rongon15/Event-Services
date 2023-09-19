@@ -17,10 +17,27 @@ public class UserService {
     public void saveUser(User user){
         userdao.save(user);
     }
-    public Optional<User> getUserById(UUID id){
+    public Optional<User> getUserById(Integer id){
         Optional<User> getUser= userdao.findById(id);
         return getUser;
     }
 
+    public void deleteUser(Integer id){
+        userdao.deleteById(id);
+    }
+
+    public void updateEmail(Integer id, String email){
+        User user = getUserById(id).stream().findFirst().orElse(null);
+        if (!(user == null)){
+            user.setEmail(email);
+        }
+    }
+
+    public void updateUserName(Integer id, String userName){
+        User user = getUserById(id).stream().findFirst().orElse(null);
+        if (!(user == null)){
+            user.setUsername(userName);
+        }
+    }
 
 }
