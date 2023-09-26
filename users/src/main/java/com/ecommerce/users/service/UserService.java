@@ -14,8 +14,13 @@ public class UserService {
     @Autowired
     IUserdao userdao;
 
-    public void saveUser(User user){
+    public UserService(IUserdao userdao) {
+        this.userdao = userdao;
+    }
+
+    public User saveUser(User user){
         userdao.save(user);
+        return user;
     }
     public Optional<User> getUserById(Integer id){
         Optional<User> getUser= userdao.findById(id);
